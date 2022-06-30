@@ -1,0 +1,32 @@
+﻿@model List<LServices>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Title</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Key</td>
+                        <td>@item.Value</td>
+                        <td><a class="btn btn-primary-soft" asp-controller="Settings" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
